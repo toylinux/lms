@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Library Management System</title>
+  <script src="model/Book.js"></script>
+  <script src="model/User.js"></script>
+  <script src="model/Librarian.js"></script>
+  <script src="model/Member.js"></script>
+  <script src="model/BorrowingRecord.js"></script>
+  <script src="model/Library.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>📚 Library Management System</h1>
+  <div class="main-container">
+    <div class="left-column">
+      <h2>Book Management</h2>
+      <section>
+        <h2>Add Book</h2>
+        <form id="add-book-form">
+          <input name="title" placeholder="Title" required />
+          <input name="author" placeholder="Author" required />
+          <input name="genre" placeholder="Genre" required />
+          <input name="ISBN" placeholder="ISBN" required />
+          <input name="location" placeholder="Location" required />
+          <input name="description" placeholder="Description" required />
+          <button type="submit">Add Book</button>
+        </form>
+      </section>
+
+      <section>
+        <h2>Catalogue Search</h2>
+        <form id="catalogue-search-form">
+          <input name="title" placeholder="Search by Title"/>
+          <button type="submit">Search</button>
+        </form>
+        <ul id="book-display"></ul>
+      </section>
+      
+      <h2>Borrowing and Returning Book</h2>
+      <section>
+        <h2>Borrowing a Book</h2><p style="color: red;">Librarian Can't Borrow Book.</p>
+        <form id="borrow-book-form">
+          <input name="member-id" placeholder="Member ID" required />
+          <input name="book-id" placeholder="Book ID" required />
+          <input type="date" name="due-date" placeholder="Due Date (YYYY-MM-DD)" required />
+          <button type="submit">Borrow</button>
+        </form>
+      </section>
+
+      <section>
+        <h2>Returning Book</h2>
+        <form id="return-book-form">
+          <input name="member-id" placeholder="Member ID" required />
+          <input name="book-id" placeholder="Book ID" required />
+          <button type="submit">Return</button>
+        </form>
+        <div id="borrowed-books"></div>
+      </section>
+
+
+    </div>
+
+    <div class="right-column">
+      <h2>User Management</h2>
+      <section>
+        <h2>Add User</h2>
+        <form id="add-user-form">
+          <input name="name" placeholder="Name" required />
+          <input name="email" placeholder="Email" required />
+          <input name="password" placeholder="Password" required />
+          <label><input type="checkbox" name="librarian"/> Create as Librarian? </label>
+          <button type="submit">Add User</button>
+        </form>
+      </section>
+
+      <section>
+        <h2>Update User</h2>
+        <form id="update-user-form">
+          <input name="user-id" placeholder="User ID" required />
+          <input name="name" placeholder="Name" required />
+          <input name="email" placeholder="Email" required />
+          <input name="password" placeholder="Password" required />
+          <button type="submit">Update</button>
+        </form>
+        <div id="update-user-result"></div>
+      </section>
+
+      <section>
+        <h2>Delete User</h2>
+        <form id="delete-user-form">
+          <input name="user-id" placeholder="User ID" required />
+          <button type="submit">Delete</button>
+        </form>
+        <div id="delete-user-result"></div>
+      </section>
+
+      <section>
+        <h2>All Users</h2>
+        <ul id="user-display"></ul>
+      </section>
+    </div>
+  </div>
+
+
+  <script src="controller.js"></script>
+</body>
+
+</html>
